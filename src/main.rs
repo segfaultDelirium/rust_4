@@ -1,12 +1,10 @@
+use regex::Regex;
+
 
 
 fn main() {
     println!("Hello, world!");
 
-    zadanie1();
-}
-
-fn zadanie1(){
     println!("zadanie1");
 
     // let sample_list: Vec<i32> = Vec::new();
@@ -23,6 +21,15 @@ fn zadanie1(){
 
     let (min, max) = find_min_and_max(&sample_list);
     println!("min: {min}, max: {max}");
+
+    regex();
+}
+
+fn regex(){ 
+    let re = Regex::new(r"rust").unwrap();
+
+    let result = re.replace("I love rust!", "Rust");
+    assert_eq!(result, "I love Rust!");
 }
 
 fn find_min_and_max(list: &Vec<i32>) -> (i32, i32){
